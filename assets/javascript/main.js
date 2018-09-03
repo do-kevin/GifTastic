@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    var topics = ["cyberpunk", "ryan gosling", "socks"];
+    var topics = ["cyberpunk", "ryan gosling", "socks", "test"];
 
     function renderBtns(addBtn) {
         $("#topicBtns").empty();
@@ -15,9 +15,9 @@ $(document).ready(function () {
     }
 
     $("#submitBtn").on("click", function () {
-        var apiKey = "&api_key=" + "slIq7r4VSZShwmPby0BdErZvLH5ZfHgx";
-        var searchTerm = $("#userInput").val();
-        var queryURL = "http://api.giphy.com/v1/gifs/search?&limit=10&q=" + searchTerm + apiKey;
+        var apiKey = "&api_key=" + "KYDe3oh6tBmq8a7wwvgEYIycs35ANaL0";
+        var queryTerm = "&q=" + $("#userInput").val();
+        var queryURL = "http://api.giphy.com/v1/gifs/search?&limit=10" + queryTerm + apiKey;
         console.log(queryURL);
 
         $.ajax({
@@ -25,13 +25,16 @@ $(document).ready(function () {
             method: "GET"
         }).then(function(response) {
 
-                var gifURL = response.data.images.original.url;
+            for (var i = 0; i < response.data.length; i++) {
+                var gifURL = response.data[i].images.original.url;
             
                 var topicGIF = $("<img>");
     
                 topicGIF.attr("src", gifURL).attr("alt", searchTerm);
     
                 $(".topicGIFs").prepend(topicGIF);
+            }
+
 
         });
     });
