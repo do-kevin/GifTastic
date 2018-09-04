@@ -1,9 +1,5 @@
 $(document).ready(function () {
     var topics = ["Cowardly Dog", "Bugs Bunny"];
-
-    topics.forEach(function(i){
-        renderBtns(topics[i]);
-    });
     
     function renderBtns(addBtn) {
         $("#topicBtns").empty();
