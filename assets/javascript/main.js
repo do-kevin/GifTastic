@@ -1,20 +1,33 @@
 $(document).ready(function () {
-    var topics = ["cyberpunk", "ryan gosling", "socks", "test"];
+    var topics = ["Cowardly Dog", "Bugs Bunny"];
 
+    topics.forEach(function(i){
+        renderBtns(topics[i]);
+    });
+    
     function renderBtns(addBtn) {
         $("#topicBtns").empty();
 
 
         for (var i = 0; i < topics.length; i++) {
             var addBtn = $("<button>");
-            addBtn.attr("class", "btn btn-secondary").text(addBtn);
-            addBtn.addClass("topic");
+            addBtn.attr("class", "btn btn-secondary topic").text(addBtn);
             addBtn.text(topics[i]);
             $("#topicBtns").append(addBtn);
         }
     }
 
-    $("#submitBtn").on("click", function () {
+    $("#submitBtn").on("click", function(event) {
+        event.preventDefault();
+        var submitTopic = $("#userInput").val();
+        topics.push(submitTopic);
+
+        renderBtns();
+    });
+
+
+
+    $(document).on("click", ".topic", function () {
         var apiKey = "&api_key=" + "KYDe3oh6tBmq8a7wwvgEYIycs35ANaL0";
         var queryTerm = "&q=" + $("#userInput").val();
         var queryURL = "http://api.giphy.com/v1/gifs/search?" + "&limit=10" + queryTerm + apiKey;
@@ -33,16 +46,12 @@ $(document).ready(function () {
                 var topicGIF = $("<img>" + "<p>Rating: " + gifRating + "</p>");
                     topicGIF.attr("src", gifURL).attr("alt", queryTerm);
                     topicGIF.before('<div class="col-md-4">').after("</div>");
-                // $(topicGIF).before('<div class="col-md-4">').after("</div>");
-
-                // var gifStillURL = response.data[i].images.downsized_still.url;
-                // topicGif.attr("src", gifStillURL).attr("data-still", gifStillURL);
 
     
                 $(".topicGIFs").prepend(topicGIF);
             }
 
-
+            
         });
     });
 
