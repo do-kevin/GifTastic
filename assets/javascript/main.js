@@ -64,6 +64,20 @@ $("#submitBtn").on("click", function (event) {
     renderBtns();
 });
 
+$(document).on("mouseenter", ".gif", function () {
+    // Access current "data-state"
+    var state = $(this).attr("data-state");
+    if (state === "still") {
+
+        // Switch src to the value of "data-animate" & update the value of the "data-state"
+        $(this).attr("src", $(this).attr("data-animate"));
+        $(this).attr("data-state", "animate");
+    } else {
+        $(this).attr("src", $(this).attr("data-still"));
+        $(this).attr("data-state", "still");
+    }
+});
+
 $(document).on("click", ".gif", function () {
     // Access current "data-state"
     var state = $(this).attr("data-state");
@@ -77,6 +91,12 @@ $(document).on("click", ".gif", function () {
         $(this).attr("data-state", "still");
     }
 });
+
+function switchGIFs() {
+    
+}
+
+
 
 $(document).on("click", ".topic", displayGIFs)
 //===============================================================================
