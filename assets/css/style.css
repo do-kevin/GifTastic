@@ -10,6 +10,7 @@
 
 h1 {
     background-color: greenyellow;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.274);
 }
 
 #submitBtn {
@@ -26,8 +27,24 @@ form {
 
 p {
     background-color: yellow;
+    width: 100%;
+    margin: 10px 0 0 0;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.274);
+    border-right: 1px solid rgba(128, 128, 128, 0.274);
 }
 
 .btn {
     margin-bottom: 10px;
+}
+
+img {
+    background-color: rgb(6, 255, 255);
+    width: 100%;
+    padding: 50px;
+    cursor: pointer;
+}
+
+.gif {
+    border-bottom: 1px solid rgba(128, 128, 128, 0.274);
+    border-right: 1px solid rgba(128, 128, 128, 0.274);
 }

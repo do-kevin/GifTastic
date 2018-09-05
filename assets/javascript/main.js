@@ -1,4 +1,4 @@
-var topics = ["Cowardly Dog", "Bugs Bunny", "Teen Titans", "Cyberpunk 2077", "Arkham Batman", "Lorne Malvo", "Key and Peele"];
+var topics = ["Cowardly Dog", "Bugs Bunny", "Teen Titans", "Cyberpunk 2077", "Arkham Batman", "Lorne Malvo", "Key and Peele", "Junji Ito", "Mr. Bean"];
 
 
 
@@ -22,13 +22,13 @@ function displayGIFs() {
         for (var i = 0; i < response.data.length; i++) {
 
             // hold the gif
-            var gifDiv = $('<div>');
+            var gifDiv = $('<div class="col-md-4">');
 
-            var gifIMG = $('<img class="gif">');
+            var gifIMG = $('<img class="gif img-fluid">');
 
             // Get url for image
-            gifIMG.attr("src", response.data[i].images.downsized_still.url).attr("alt", queryInput).attr("data-state", "still").attr("data-still", response.data[i].images.downsized_still.url);
-            gifIMG.attr("data-animate", response.data[i].images.downsized.url);
+            gifIMG.attr("src", response.data[i].images.original_still.url).attr("alt", queryInput).attr("data-state", "still").attr("data-still", response.data[i].images.original_still.url);
+            gifIMG.attr("data-animate", response.data[i].images.original.url);
 
             // Get url for rating
             var gifRating = response.data[i].rating;
@@ -50,7 +50,7 @@ function renderBtns() {
         var addBtn = $("<button>");
 
         // for `.attr("data-name", topics[i])`, it assigns a custom class data-name with the respective index
-        addBtn.attr("class", "btn btn-secondary topic").attr("data-name", topics[i]);
+        addBtn.attr("class", "btn btn-primary topic").attr("data-name", topics[i]);
         addBtn.text(topics[i]);
         $("#topicBtns").append(addBtn);
     }
