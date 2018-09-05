@@ -1,4 +1,4 @@
-var topics = ["Cowardly Dog", "Bugs Bunny", "Teen Titans", "Cyberpunk 2077", "Arkham Batman", "Lorne Malvo", "Key and Peele", "Junji Ito", "Mr. Bean"];
+var topics = ["Cowardly Dog", "Bugs Bunny", "Teen Titans", "Buster Keaton", "Mr. Bean", "Key and Peele", "Cyberpunk 2077", "Blade Runner 2049", "Arkham Batman", "Ash vs Evil Dead", "Junji Ito"];
 
 
 
